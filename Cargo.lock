@@ -204,13 +204,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "lystem"
-version = "0.1.0"
-dependencies = [
- "image",
-]
-
-[[package]]
 name = "miniz_oxide"
 version = "0.7.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -269,6 +262,14 @@ checksum = "1465873a3dfdaa8ae7cb14b4383657caab0b3e8a0aa9ae8e04b044854c8dfce2"
 dependencies = [
  "crossbeam-deque",
  "crossbeam-utils",
+]
+
+[[package]]
+name = "rlystem"
+version = "0.1.0"
+dependencies = [
+ "image",
+ "num-traits",
 ]
 
 [[package]]
