@@ -1,4 +1,4 @@
-use image::{DynamicImage, GrayImage, ImageResult, Rgb, RgbImage, RgbaImage};
+use image::{DynamicImage, ImageResult, Rgb, RgbImage};
 use std::path::PathBuf;
 use num_traits::float::FloatConst;
 
