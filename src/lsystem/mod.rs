@@ -4,9 +4,9 @@ mod test;
 use std::collections::HashMap;
 use std::hash::Hash;
 
-struct LSystem<T>
+pub struct LSystem<T>
 where T: PartialEq + Eq + Hash + Clone {
-    state: Vec<T>,
+    pub state: Vec<T>,
     rules: HashMap<T, Vec<T>>,
 }
 
