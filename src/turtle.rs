@@ -4,9 +4,9 @@ use num_traits::float::FloatConst;
 
 pub struct Turtle {
     buffer: RgbImage,
-    x: i64,
-    y: i64,
-    angle: f64,
+    pub x: i64,
+    pub y: i64,
+    pub angle: f64,
 }
 
 impl Turtle {

@@ -18,7 +18,7 @@ impl LSystemSymbol for char {
             'F' => turtle.forward(4),
             '+' => turtle.turn(90.0),
             '-' => turtle.turn(-90.0),
-            _ => panic!("Invalid character")
+            _ => ()
         }
     }
 }
