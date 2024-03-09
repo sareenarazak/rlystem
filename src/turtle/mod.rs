@@ -1,11 +1,10 @@
+#[cfg(test)]
 mod test;
 
 use std::path::PathBuf;
 use image::{DynamicImage, ImageResult, Rgb, RgbImage};
-use num_traits::float::FloatConst;
-#[cfg(test)]
+use core::f64::consts::TAU;
 
-pub const TAU: f64 = 6.28318530717958647692528676655900577;
 pub struct Turtle {
     buffer: RgbImage,
     pub x: i64,

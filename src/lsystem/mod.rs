@@ -7,7 +7,7 @@ use std::path::PathBuf;
 use image::ImageError;
 use crate::turtle::Turtle;
 
-trait LSystemSymbol {
+pub trait LSystemSymbol {
     fn run_turtle(&self, turtle: &mut Turtle);
 }
 
