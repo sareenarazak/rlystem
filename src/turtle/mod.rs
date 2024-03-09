@@ -1,6 +1,9 @@
+mod test;
+
 use std::path::PathBuf;
 use image::{DynamicImage, ImageResult, Rgb, RgbImage};
 use num_traits::float::FloatConst;
+#[cfg(test)]
 
 pub const TAU: f64 = 6.28318530717958647692528676655900577;
 pub struct Turtle {

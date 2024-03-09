@@ -5,7 +5,6 @@ use std::collections::HashMap;
 use std::hash::Hash;
 use std::path::PathBuf;
 use image::ImageError;
-use crate::turtle;
 use crate::turtle::Turtle;
 
 trait LSystemSymbol {
@@ -54,7 +53,7 @@ where T: PartialEq + Eq + Hash + Clone + LSystemSymbol {
     }
 
     pub fn draw(&self, path: PathBuf) -> Result<(), ImageError> {
-        let mut turtle = turtle::Turtle::new(1000, 1000);
+        let mut turtle = Turtle::new(1000, 1000);
         for x in &self.state {
             x.run_turtle(&mut turtle);
         }
