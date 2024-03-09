@@ -2,6 +2,7 @@ use std::path::PathBuf;
 use image::{DynamicImage, ImageResult, Rgb, RgbImage};
 use num_traits::float::FloatConst;
 
+pub const TAU: f64 = 6.28318530717958647692528676655900577;
 pub struct Turtle {
     buffer: RgbImage,
     pub x: i64,
@@ -28,33 +29,37 @@ impl Turtle {
     }
 
     pub fn turn(& mut self, angle: f64) {
-        self.angle = (self.angle + (angle / 360.0 * f64::TAU())) % f64::TAU();
+        self.angle = (self.angle + (angle / 360.0 * TAU)) % TAU;
     }
-
 
     // https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm
     fn plot_line(&mut self, x0: i64, y0: i64, x1: i64, y1: i64) {
         let mut x0 = x0;
         let mut y0 = y0;
-        let dx = i64::abs(x1 - x0);
-        let sx: i64 = if x0 < x1 { 1 } else { -1 };
 
+        let dx = i64::abs(x1 - x0);
         let dy = -i64::abs(y1 - y0);
-        let sy: i64 = if y0 < y1 { 1 } else { -1 };
 
         let mut error = dx + dy;
 
+        let sx: i64 = if x0 < x1 { 1 } else { -1 };
+        let sy: i64 = if y0 < y1 { 1 } else { -1 };
+
         loop {
             self.put_pixel(x0, y0);
+
             if x0 == y0 && y0 == y1 {
                 break
             }
+
             let e2 = 2 * error;
+
             if e2 >= dy {
                 if x0 == x1 { break }
                 error = error + dy;
                 x0 = x0  + sx;
             }
+
             if e2 <= dx {
                 if y0 == y1 { break }
                 error = error + dx;
