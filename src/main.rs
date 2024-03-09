@@ -6,6 +6,7 @@ mod lsystem;
 fn main() {
     koch_curve();
     cute_plant();
+    sierpinski_triangle();
 }
 
 fn cute_plant() {
@@ -52,4 +53,31 @@ fn koch_curve() {
 
     koch_curve.run(10);
     koch_curve.draw("koch_curve.png".into()).unwrap();
+}
+
+fn sierpinski_triangle() {
+    let mut rules = HashMap::new();
+    rules.insert('F', "F-G+F+G-F".chars().collect());
+    rules.insert('G', "GG".chars().collect());
+
+    let mut triangle = lsystem::LSystem::new("F-G-G".chars().collect(), rules.clone());
+    triangle.run(2);
+
+    let mut turtle = turtle::Turtle::new(1000, 1000);
+    turtle.angle = 120.0;
+    turtle.x = 250;
+    turtle.y = 250;
+
+    for x in &triangle.state {
+        match x {
+            'F' => turtle.forward(20),
+            'G' => turtle.forward(20),
+
+            '+' => turtle.turn(120.0),
+            '-' => turtle.turn(-120.0),
+            _ => ()
+        }
+    }
+
+    turtle.save("sierpinski_triangle.png".into()).unwrap()
 }
