@@ -65,8 +65,8 @@ fn sierpinski_triangle() {
 
     let mut turtle = turtle::Turtle::new(1000, 1000);
     turtle.angle = 120.0;
-    turtle.x = 250;
-    turtle.y = 250;
+    turtle.x = 0;
+    turtle.y = 0;
 
     for x in &triangle.state {
         match x {

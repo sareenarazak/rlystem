@@ -30,7 +30,7 @@ impl Turtle {
         self.y = new_y;
     }
 
-    pub fn turn(& mut self, angle: f64) {
+    pub fn turn(&mut self, angle: f64) {
         self.angle = (self.angle + (angle / 360.0 * TAU)) % TAU;
     }
 
